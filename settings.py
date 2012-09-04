@@ -76,6 +76,7 @@ INSTALLED_APPS = (
     'django.contrib.markup',
     'pages',
     'games',
+    'github',
 )
 
 # A sample logging configuration. The only tangible logging

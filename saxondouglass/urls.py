@@ -6,6 +6,7 @@ admin.autodiscover()
 urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^games/', include('games.urls')),
+    url(r'^github/', include('github.urls')),
     url(r'', include('pages.urls')),
 )
 
