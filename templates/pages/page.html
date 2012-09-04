@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% load markup %}
+
+{% block title %}{{ page.title }}{% endblock %}
+
+{% block content %}
+{{ page.content|markdown }}
+{% endblock %}

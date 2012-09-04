@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% load markup %}
+
+{% block title %}{{ game.title }}{% endblock %}
+
+{% block content %}
+<div class="game">
+    <img src="{{ game.image.url }}">
+    <h2>{{ game.title }}</h2>
+    {{ game.brief|markdown }}
+    <div class="download_set">
+{% for download in download_list %}
+        <a href="{{ download.url }}">
+            <button type="button" class="download">
+                {{ download.label }}
+                <small>{{ download.sublabel }}&nbsp;</small>
+            </button>
+        </a>
+{% endfor %}
+    </div>
+    {{ game.details|markdown }}
+</div>
+{% endblock %}

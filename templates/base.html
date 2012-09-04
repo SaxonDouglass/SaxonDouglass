@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{% block title %}{% endblock %} - Saxon Douglass</title>
+    <link rel="shortcut icon" href="/favicon.ico" />
+    
+    <!-- fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Ropa+Sans' rel='stylesheet' type='text/css'>
+    
+    <link href='{{STATIC_URL}}style.css' rel='stylesheet' type='text/css'>
+  </head>
+  <body>
+    <div id="container">
+      <header>
+        <h1><a href="/">Saxon Douglass</a></h1>
+        <div id="social">
+          <a href="https://plus.google.com/110073383144493576875"><img src="{{STATIC_URL}}img/gplus.png" /></a>
+          <a href="http://www.facebook.com/saxon.douglass"><img src="{{STATIC_URL}}img/facebook.png" /></a>
+          <a href="https://twitter.com/#!/SaxonDouglass"><img src="{{STATIC_URL}}img/twitter.png" /></a>
+          <a href="http://au.linkedin.com/in/saxondouglass"><img src="{{STATIC_URL}}img/linkedin.png" /></a>
+        </div>
+      </header>
+      <nav>
+        <ul>
+          <li><a href="/about">ABOUT</a></li>
+          <li><a href="/games">GAMES</a></li>
+        </ul>
+      </nav>
+      <section id="sidebar">
+        <figure id="portrait">
+          <img src="{{STATIC_URL}}img/portrait-150.png" />
+        </figure>
+        <p>I study medicine at Flinders University and love game design.<br>
+        I have studied computer science at the University of
+        Adelaide and co-founded
+        <a href="http://jamalaide.org.au">Jamalaide</a>.</p>
+        <p>Contact me at: <a href="mailto:saxon@saxondouglass.com">
+        saxon&#64;saxondouglass.com</a>.</p>
+      </section>
+      <article id="content">
+        {% block content %}{% endblock %}
+      </article>
+      <footer>
+        &copy; Saxon Douglass {% now "Y" %}.
+      </footer>
+    </div>
+  </body>
+</html>
