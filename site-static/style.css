@@ -3,9 +3,10 @@
 	padding: 0;
 }
 body {
-    background-color: #f0f7fb;
-	font-family: sans-serif;
-    line-height: 1.25em;
+    color: #444444;
+    font-size: 1em;
+    font-family: Georgia,serif;
+    line-height: 145%;
 }
 a {
     color: #226688;
@@ -16,27 +17,34 @@ a:link, a:visited {
 a:hover, a:active {
     text-decoration: underline;
 }
+
 h1, h2, h3, h4, h5, h6 {
-    color: #000000;
+    color: #226688;
     font-family: 'Ropa Sans',sans-serif;
+    letter-spacing: 0;
 }
 h1 {
-    font-size: 48px;
+    font-size: 3em;
+    font-weight: normal;
+    margin: 1.5em 0 .5em 0;
 }
 h2 {
     font-size: 2em;
-    margin: 0.5em 0;
+    font-weight: normal;
+    margin: 1em 0 .5em 0;
 }
 h3 {
-    font-size: 1.75em;
-    font-weight: normal;
-    margin: 0.5em 0;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 1em 0 .5em 0;
 }
 h4 {
     font-size: 1.5em;
+    font-style: italic;
     font-weight: normal;
-    margin-top: 0.5em;
+    margin: 1em 0 0 0;
 }
+
 dl {
     margin: 1em 0 1em 0;
 }
@@ -48,7 +56,7 @@ dd {
 }
 footer {
     clear: both;
-    color: #cccccc;
+    color: #777777;
     margin-top: 32px;
     position: relative;
     text-align: center;
@@ -58,10 +66,19 @@ header {
     background-color: #ffffff;
     border-bottom: 4px solid #000000;
     margin: 16px auto 0 auto;
+    padding-left: 160px;
     position: relative;
     height: 36px;
-    width: 950px;
+    width: 790px;
     z-index: 10;
+}
+header p {
+    color: #000000;
+    font-family: 'Ropa Sans',sans-serif;
+    font-size: 48px;
+    line-height: 0;
+    margin-left: 16px;
+    padding-top: 14px;
 }
 header a:link, header a:visited {
     color: #000000;
@@ -71,12 +88,13 @@ header a:active, header a:hover {
     text-decoration: none;
 }
 p {
+    line-height: 145%;
     margin-bottom: 1em;
 }
 nav {
     font-family: 'Ropa Sans',Arial,sans-serif;
     font-size: 18pt;
-    margin-top: 8px;
+    margin: 8px 0 0 176px;
 }
 nav li {
     display: inline;
@@ -97,38 +115,33 @@ nav a:active, nav a:hover {
     padding: 32px;
     position: relative;
     width: 950px;
-    box-shadow: 2px 2px 4px 0 #888888;
 }
 #sidebar {
-    color: #888888;
+    color: #777777;
     float: right;
-    width: 200px;
-    margin-bottom: 32px;
-    font-size: 0.8em;
+    width: 250px;
+    margin: 32px 16px 32px 0;
+    font-size: small;
 }
 #social {
     float: right;
-    margin-top: -24px;
+    margin-top: -64px;
     text-align: right;
 }
 #social img {
     margin-left: 8px;
     margin-right: 8px;
-    opacity: 0.5;
-}
-#social img:hover {
-    opacity: 1;
 }
 #portrait {
-    margin: 0 auto 16px auto;
+    position: absolute;
+    top: -64px;
+    left: 0;
     width: 150px;
-}
-#portrait img {
     box-shadow: 0 0 4px 2px #869ba6;
 }
 #content {
-    margin: 32px 0;
-    width: 700px;
+    margin: 32px 0 32px 16px;
+    width: 600px;
 }
 #content ul {
     list-style: square url(/static/img/bullet.png) outside;
@@ -171,7 +184,7 @@ nav a:active, nav a:hover {
 }
 .game {
     min-height: 150px;
-    margin: 32px 0;
+    padding-top: 32px;
 }
 .game img {
     float: left;

@@ -12,7 +12,8 @@
   <body>
     <div id="container">
       <header>
-        <h1><a href="/">Saxon Douglass</a></h1>
+        <img id="portrait" src="{{STATIC_URL}}img/portrait-150.png" />
+        <p><a href="/">Saxon Douglass</a></p>
         <div id="social">
           <a href="https://plus.google.com/110073383144493576875"><img src="{{STATIC_URL}}img/gplus.png" /></a>
           <a href="http://www.facebook.com/saxon.douglass"><img src="{{STATIC_URL}}img/facebook.png" /></a>
@@ -22,21 +23,19 @@
       </header>
       <nav>
         <ul>
-          <li><a href="/about">ABOUT</a></li>
-          <li><a href="/games">GAMES</a></li>
+          <li><a href="/">home</a></li>
+          <li><a href="/games">games</a></li>
+          <li><a href="/about">about</a></li>
         </ul>
       </nav>
-      <section id="sidebar">
-        <figure id="portrait">
-          <img src="{{STATIC_URL}}img/portrait-150.png" />
-        </figure>
+      <div id="sidebar">
         <p>I study medicine at Flinders University and love game design.<br>
         I have studied computer science at the University of
         Adelaide and co-founded
         <a href="http://jamalaide.org.au">Jamalaide</a>.</p>
         <p>Contact me at: <a href="mailto:saxon@saxondouglass.com">
         saxon&#64;saxondouglass.com</a>.</p>
-      </section>
+      </div>
       <article id="content">
         {% block content %}{% endblock %}
       </article>
