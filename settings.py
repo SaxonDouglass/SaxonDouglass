@@ -77,6 +77,7 @@ INSTALLED_APPS = (
     'pages',
     'games',
     'github',
+    'south',
 )
 
 # A sample logging configuration. The only tangible logging
