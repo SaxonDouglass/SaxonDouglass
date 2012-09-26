@@ -21,6 +21,9 @@ class Download(models.Model):
     file = models.FileField(storage=OverwriteStorage(), upload_to=lambda instance, filename: 'game/'+instance.game.slug+'/'+filename,blank=True,null=True)
     url = models.CharField(max_length=128,editable=False)
     
+    def is_link(self):
+        return bool(self.link)
+    
     def save(self):
         super(Download, self).save()
         if self.link:

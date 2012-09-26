@@ -12,7 +12,7 @@
     <div class="download_set">
 {% for download in download_list %}
         <a href="{{ download.url }}">
-            <button type="button" class="download">
+            <button type="button" class="{% if download.is_link %}link{% else %}download{% endif %}">
                 {{ download.label }}
             </button>
         </a>
