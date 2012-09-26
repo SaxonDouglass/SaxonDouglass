@@ -10,7 +10,7 @@ class Migration(SchemaMigration):
     def forwards(self, orm):
         # Adding field 'Game.date'
         db.add_column('games_game', 'date',
-                      self.gf('django.db.models.fields.DateField')(default=datetime.datetime(2012, 9, 26, 0, 0)),
+                      self.gf('django.db.models.fields.DateField')(default=datetime.datetime.now),
                       keep_default=False)
 
 
@@ -33,7 +33,7 @@ class Migration(SchemaMigration):
         'games.game': {
             'Meta': {'object_name': 'Game'},
             'brief': ('django.db.models.fields.TextField', [], {}),
-            'date': ('django.db.models.fields.DateField', [], {}),
+            'date': ('django.db.models.fields.DateField', [], {'default': 'datetime.datetime.now'}),
             'details': ('django.db.models.fields.TextField', [], {}),
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'image': ('django.db.models.fields.files.ImageField', [], {'max_length': '100'}),

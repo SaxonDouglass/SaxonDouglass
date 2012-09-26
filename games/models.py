@@ -1,9 +1,10 @@
+from datetime import datetime
 from django.db import models
 
 class Game(models.Model):
     title = models.CharField(max_length=20)
     slug = models.SlugField(max_length=20)
-    date = models.DateField()
+    date = models.DateField(default=datetime.now)
     brief = models.TextField()
     details = models.TextField()
     image = models.ImageField(upload_to=lambda instance, filename: 'img/game/'+instance.slug+'-badge')
