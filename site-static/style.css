@@ -157,7 +157,7 @@ nav a:active, nav a:hover {
     margin: 0.5em 0;
 }
 .download_set {
-    clear: left;
+    clear: both;
     margin-bottom: 32px;
 }
 .download {
@@ -184,10 +184,10 @@ nav a:active, nav a:hover {
 }
 .game {
     min-height: 150px;
-    padding-top: 32px;
+    margin-bottom: 64px;
 }
 .game img {
-    float: left;
-    margin: 0 32px 1em 0;
+    float: right;
+    margin-left: 16px;
     box-shadow: 0 0 4px 2px #869ba6;
 }

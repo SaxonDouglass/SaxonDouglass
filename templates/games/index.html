@@ -5,6 +5,7 @@
 {% block title %}Games{% endblock %}
 
 {% block content %}
+<h1>Games</h1>
 {% for game in game_list %}
 <div class="game">
     <a href="/games/{{ game.slug }}"><img src="{{ game.image.url }}"></a>

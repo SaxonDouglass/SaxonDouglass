@@ -1,0 +1,44 @@
+# -*- coding: utf-8 -*-
+import datetime
+from south.db import db
+from south.v2 import SchemaMigration
+from django.db import models
+
+
+class Migration(SchemaMigration):
+
+    def forwards(self, orm):
+        # Deleting field 'Download.sublabel'
+        db.delete_column('games_download', 'sublabel')
+
+
+    def backwards(self, orm):
+        # Adding field 'Download.sublabel'
+        db.add_column('games_download', 'sublabel',
+                      self.gf('django.db.models.fields.CharField')(max_length=20, null=True, blank=True),
+                      keep_default=False)
+
+
+    models = {
+        'games.download': {
+            'Meta': {'object_name': 'Download'},
+            'file': ('django.db.models.fields.files.FileField', [], {'max_length': '100', 'null': 'True', 'blank': 'True'}),
+            'game': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['games.Game']"}),
+            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'label': ('django.db.models.fields.CharField', [], {'max_length': '20'}),
+            'link': ('django.db.models.fields.CharField', [], {'max_length': '128', 'null': 'True', 'blank': 'True'}),
+            'url': ('django.db.models.fields.CharField', [], {'max_length': '128'})
+        },
+        'games.game': {
+            'Meta': {'object_name': 'Game'},
+            'brief': ('django.db.models.fields.TextField', [], {}),
+            'date': ('django.db.models.fields.DateField', [], {'default': 'datetime.datetime.now'}),
+            'details': ('django.db.models.fields.TextField', [], {}),
+            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'image': ('django.db.models.fields.files.ImageField', [], {'max_length': '100'}),
+            'slug': ('django.db.models.fields.SlugField', [], {'max_length': '20'}),
+            'title': ('django.db.models.fields.CharField', [], {'max_length': '20'})
+        }
+    }
+
+    complete_apps = ['games']
