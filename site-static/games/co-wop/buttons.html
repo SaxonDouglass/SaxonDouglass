@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no"> 
+        <meta name="apple-mobile-web-app-capable" content="yes"> 
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <title>enchant</title>
+        <script type="text/javascript" src="lib/box2d.js"></script>
+        <script type="text/javascript" src="lib/enchant.min.js"></script>
+        <script type="text/javascript" src="lib/box2d.enchant.js"></script>
+        <style type="text/css">
+            body {
+                margin: 0;
+            }
+        </style>
+		
+    </head>
+    <body>
+        <script type="text/javascript">
+		
+			function Valve(img,x,y,w,h){
+			
+				this.sprite = new Sprite(w, h);
+				this.sprite.image = game.assets[img];
+				this.flow  = 0;
+				this.right = false;
+				this.leftChild;
+				this.rightChild;
+				
+				game.rootScene.addChild(this.sprite);
+				this.sprite.moveTo(x,y);
+				this.sprite.addEventListener('touchstart',this.toggleRight.bind(this));
+			}
+			
+			Valve.prototype.toggleRight = function(){
+				this.right = !this.right;
+				this.update();
+			}
+			
+			Valve.prototype.update = function(){
+				if(this.right){
+					this.rightChild.flow = this.flow;
+					this.leftChild.flow = 0;
+					
+					if(this.flow){
+						this.sprite.frame = [3];
+					}else{
+						this.sprite.frame = [1];
+					}
+				}else{
+					this.rightChild.flow = 0;
+					this.leftChild.flow = this.flow;
+					
+					if(this.flow){
+						this.sprite.frame = [2];
+					}else{
+						this.sprite.frame = [0];
+					}
+				}
+				this.leftChild.update();
+				this.rightChild.update();
+			}
+			
+			enchant(); // initialize
+			var game = new Game(800, 600); // game stage
+			game.preload('img/valves.png', 'img/buttons.png'); // preload image
+			game.fps = 30;
+
+			game.onload = function(){
+				var button = new Sprite(100, 100);
+				button.image = game.assets['img/buttons.png'];
+				
+				
+				
+				var valve1 = new Valve('img/valves.png',60,200,200,200);
+				var valve2 = new Valve('img/valves.png',0,0,200,200);
+				
+				valve1.leftChild = valve2;
+				valve1.rightChild = '';
+				valve2.leftChild = '';
+				valve2.rightChild = '';
+				
+				game.rootScene.addChild(button);
+				button.moveTo(200,100);
+				
+				var bloodFlow = false;
+				var valveRight = true;
+				
+				
+				
+				button.addEventListener('touchstart',function(){
+					button.frame = [1];
+					if(valve1.flow){
+						valve1.flow = 0;
+					}else{
+						valve1.flow = 10;
+					};
+					valve1.update();
+					
+				});
+				button.addEventListener('touchend',function(){
+					button.frame = [0];
+				});
+			};
+
+			game.start(); // start your game!
+			
+		
+		</script>
+    </body>
+</html>
